@@ -2,9 +2,10 @@ package models
 
 import reactivemongo.api._
 import reactivemongo.bson._
+import reactivemongo.core.commands._
 
 
-case class Person(id: BSONObjectID, firstName: String, lastName: String, age: Int)
+case class Person(id: Long, firstName: String, lastName: String, age: Int)
 
 object Person {
   val fieldId = "id"
@@ -33,7 +34,7 @@ object Person {
   }
 
   def fromBson(doc: BSONDocument): Person = {
-    Person(doc.getAs[BSONObjectID](fieldId).get,
+    Person(doc.getAs[Long](fieldId).get,
       doc.getAs[String](fieldFirstname).get,
       doc.getAs[String](fieldLastname).get,
       doc.getAs[Int](fieldAge).get)
