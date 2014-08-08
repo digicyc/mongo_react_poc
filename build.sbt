@@ -1,4 +1,4 @@
-name := "mongo_react"
+name := "mongo_react_poc"
 
 version := "1.0"
 
