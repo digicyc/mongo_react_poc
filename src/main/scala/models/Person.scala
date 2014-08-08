@@ -20,10 +20,6 @@ object Person {
     def read(doc: BSONDocument): Person = fromBson(doc)
   }
   
-  // Not exactly sure if these are necessary
-  val theBsonWriter: BSONDocumentWriter[Person] = bsonWriter
-  val theBsonReader: BSONDocumentReader[Person] = bsonReader
-
   def toBson(obj: Person): BSONDocument = {
     BSONDocument(
       fieldId -> obj.id,
